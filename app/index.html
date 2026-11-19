@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Sunset Cover Studio</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="app">
+  <section class="controls" aria-label="Cover controls">
+    <header>
+      <h1>Neon Sunset<br>Cover Studio</h1>
+      <p>Turn your photo into a multi-panel Vice City&ndash;style poster. Everything runs offline &mdash; your photos never leave this machine.</p>
+    </header>
+
+    <fieldset class="photos">
+      <legend>Photos</legend>
+      <div class="sample-row">
+        <button type="button" class="sample" data-sample="sportscar">Sportscar</button>
+        <button type="button" class="sample" data-sample="boulevard">Boulevard</button>
+        <button type="button" class="sample" data-sample="pier">Pier</button>
+        <button type="button" class="sample" data-sample="skyline">Skyline</button>
+        <button type="button" class="sample" data-sample="beach">Beach</button>
+        <button type="button" class="sample" data-sample="street">Street</button>
+      </div>
+      <label class="upload">Upload your own photo(s)
+        <input id="upload" type="file" accept="image/*" multiple>
+      </label>
+      <p class="hint">Drop an image onto a panel in the preview to put it there. Drag a panel to reposition its photo, scroll over it to zoom.</p>
+    </fieldset>
+
+    <fieldset class="panels">
+      <legend>Panels</legend>
+      <div id="panel-controls"></div>
+    </fieldset>
+
+    <fieldset class="caption">
+      <legend>Caption &amp; theme</legend>
+      <label>Title
+        <input id="title" type="text" maxlength="34" value="Sunset Chase">
+      </label>
+      <label>Subtitle
+        <input id="subtitle" type="text" maxlength="60" value="Coastline Nights">
+      </label>
+      <label>Tagline
+        <input id="tagline" type="text" maxlength="40" value="EVERY STREET IS A STAGE">
+      </label>
+      <label>Theme
+        <select id="theme">
+          <option value="posterink" selected>Poster Ink &mdash; comic halftone duotone</option>
+          <option value="cinema">Cinema &mdash; teal-orange film</option>
+          <option value="sunset">Sunset &mdash; magenta / orange / gold</option>
+          <option value="neon">Neon &mdash; pink / teal on dark</option>
+          <option value="night">Night &mdash; deep blue / gold</option>
+        </select>
+      </label>
+      <label>Title position
+        <select id="title-pos">
+          <option value="bottom" selected>Bottom band</option>
+          <option value="top">Top band</option>
+        </select>
+      </label>
+      <label class="check"><input id="letterbox" type="checkbox"> Letterbox bars on the hero panel</label>
+      <label class="check"><input id="grain" type="checkbox" checked> Film grain &amp; vignette</label>
+    </fieldset>
+
+    <fieldset class="export">
+      <legend>Export</legend>
+      <div class="sizes" role="group" aria-label="Export size">
+        <label><input type="radio" name="size" value="1080x1080" checked> 1080 &times; 1080 <span>square</span></label>
+        <label><input type="radio" name="size" value="1080x1350"> 1080 &times; 1350 <span>portrait</span></label>
+        <label><input type="radio" name="size" value="1920x1080"> 1920 &times; 1080 <span>wide</span></label>
+      </div>
+      <button id="export" type="button">Export PNG</button>
+      <p id="status" role="status"></p>
+    </fieldset>
+  </section>
+
+  <section class="preview">
+    <canvas id="cover" width="1080" height="1080" aria-label="The cover preview"></canvas>
+    <p class="preview-hint">Preview &mdash; drag a panel to move its photo, scroll to zoom.</p>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
